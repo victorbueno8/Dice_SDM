@@ -6,6 +6,7 @@
     <string name="face_sorteada_result">Face sorteada:</string>
     <string name="selecione_o_numero_de_dados">Selecione o número de dados</string>
     <string name="entre_com_o_numero_de_faces">Entre com o número de faces</string>
+    <string name="salvar">Salvar</string>
     <string-array name="numero_dados">
         <item>1</item>
         <item>2</item>
