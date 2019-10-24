@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import org.json.JSONException;
 
@@ -22,6 +23,7 @@ public class ConfiguracaoActivity extends AppCompatActivity {
     public ConfiguracaoController configuracaoController;
     private Spinner numDadosSpinner;
     private EditText numFacesEditText;
+    private Toolbar toolbar;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,7 +31,7 @@ public class ConfiguracaoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_configuracao);
 
         // Toolbar
-        androidx.appcompat.widget.Toolbar toolbar = new androidx.appcompat.widget.Toolbar(this);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Configuracao");
         this.setSupportActionBar(toolbar);
 
@@ -45,6 +47,8 @@ public class ConfiguracaoActivity extends AppCompatActivity {
 
     public void onClickSalvarConfiguracao(View v) throws JSONException {
         // Pega dados da tela
+        numDadosSpinner = findViewById(R.id.numDadosSpinner);
+        numFacesEditText = findViewById(R.id.numFacesEditText);
         int numDados = Integer.parseInt(numDadosSpinner.getSelectedItem().toString());
         int numFaces = Integer.parseInt(numFacesEditText.getText().toString());
 

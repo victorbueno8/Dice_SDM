@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Build;
@@ -17,7 +18,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toolbar;
 
 import java.util.Random;
 import java.util.zip.Inflater;
@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // Simula olancamento de dadoscom Ramdom
     private Random geradorRandomico;
     private MenuInflater menuInflater;
+    private Toolbar toolbar;
     private final int CONFIGURACOES_REQUEST_CODE = 0;
 
     // Componentes
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         // Toolbar
-        androidx.appcompat.widget.Toolbar toolbar = new androidx.appcompat.widget.Toolbar(this);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(getString(R.string.app_name));
         setSupportActionBar(toolbar);
 
@@ -72,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // Cria o menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        menuInflater = new MenuInflater(this);
         menuInflater.inflate(R.menu.main_menu, menu);
         return true;
     }

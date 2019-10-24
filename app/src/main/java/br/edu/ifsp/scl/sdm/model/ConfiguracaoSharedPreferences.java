@@ -19,6 +19,7 @@ public class ConfiguracaoSharedPreferences implements ConfiguracaoDAO {
 
     public ConfiguracaoSharedPreferences(Context context) {
         sharedPreferences = context.getSharedPreferences(NOME_ARQUIVO, MODO_ARQUIVO);
+        gsonBuilder = new GsonBuilder();
         gson = gsonBuilder.create();
     }
 
@@ -38,6 +39,6 @@ public class ConfiguracaoSharedPreferences implements ConfiguracaoDAO {
         if (configuracaoString != "")
             return gson.fromJson(configuracaoString, Configuracao.class);
         else
-            return new Configuracao();
+            return new Configuracao(1, 6);
     }
 }
